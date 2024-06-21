@@ -23,7 +23,7 @@ const App = () => {
                     {
                         /* Add Budget component here */
                         // Budget component
-                        <div className='col-sm col-md-4'>
+                        <div className='col-sm col-md-4' style={{width: "fit-content"}}>
                             <Budget />
                         </div>
                     }

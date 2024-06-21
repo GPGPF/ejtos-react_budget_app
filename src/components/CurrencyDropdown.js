@@ -1,7 +1,7 @@
 import React, { createRef, useContext } from 'react'
 import { AppContext } from '../context/AppContext';
 const CurrencyDropdown = () => {
-    const { dispatch } = useContext(AppContext);
+    const { currency,dispatch } = useContext(AppContext);
     const handleChangeCurrency = (e) => {
         if(e.target.classList.contains("dropdown-item")){
             dispatch({
@@ -15,12 +15,18 @@ const CurrencyDropdown = () => {
     const handleToggle = (e) => {
         dropdownRef.current.classList.toggle("d-block");
     }
+    const currencyName={
+        '$':"Dollar",
+        '£':"Pound",
+        '€':"Euro",
+        '₹':"Rupee"
+    }
 
     return (
 
         <div className="btn-group mb-3">
             <button className="btn btn-success btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={handleToggle}>
-                Large button
+                Currency({currency} {currencyName[currency]})
             </button>
             <ul className="dropdown-menu mt-2 bg-success" style={{ top: "100%", cursor:"pointer" }} ref={dropdownRef} onClick={handleChangeCurrency}>
                 <li className="dropdown-item" href="/">&#36; Dollar</li>
