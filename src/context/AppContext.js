@@ -39,7 +39,7 @@ export const AppReducer = (state, action) => {
                         budget = state.budget + action.payload.cost
                     }
                     else{
-                        alert("The value cannot be less than current expense £"+currentExp.cost);
+                        alert("The value cannot be less than current expense "+state.currency+currentExp.cost);
                     }
                 }
                 return currentExp
@@ -76,7 +76,6 @@ export const AppReducer = (state, action) => {
             return {
                 ...state
             }
-
         default:
             return state;
     }
